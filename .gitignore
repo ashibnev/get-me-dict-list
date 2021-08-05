@@ -1,4 +1,6 @@
-data.json
+*.json
+
+__old__js.js
 
 # Default
 .idea
