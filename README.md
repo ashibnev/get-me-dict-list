@@ -3,7 +3,7 @@
 to start type
 
 ```
-node index.js
+node init.js
 ```
 
 get data from [https://restcountries.eu/](https://restcountries.eu/)
