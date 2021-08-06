@@ -8,9 +8,9 @@ node init
 
 ## how to config template
 
-we get data from [https://restcountries.eu/](https://restcountries.eu/)
+We get data from [https://restcountries.eu/](https://restcountries.eu/)
 
-what we have in API object item
+This is one of the objects we have in the array:
 
 ```
 {
@@ -78,7 +78,7 @@ what we have in API object item
 }
 ```
 
-example template
+To customize objects for output, you must set the template settings
 
 ```
 template(_this) {
