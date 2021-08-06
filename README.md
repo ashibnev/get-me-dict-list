@@ -8,7 +8,22 @@ node init
 
 ## how to config template
 
-We get data from [https://restcountries.eu/](https://restcountries.eu/)
+All options in file config.js
+
+### url
+
+**default**: [https://restcountries.eu/](https://restcountries.eu/)
+**description**: API url
+
+### fileName
+
+**default**: data
+**description**: what file name will be on output
+
+### template
+
+**default**: null
+**description**:
 
 This is one of the objects we have in the array:
 

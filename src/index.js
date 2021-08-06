@@ -1,8 +1,16 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
+const DEFAULT_URL = 'https://restcountries.eu/rest/v2/all';
+const DEFAULT_FILE_NAME = 'data';
+const DEFAULT_TEMPLATE = null;
+
 export class CountryList {
-  constructor({ url, fileName, template }) {
+  constructor({
+    url = DEFAULT_URL,
+    fileName = DEFAULT_FILE_NAME,
+    template = DEFAULT_TEMPLATE,
+  }) {
     this.url = url;
     this.fileName = fileName;
     this.template = template;
@@ -10,7 +18,16 @@ export class CountryList {
     this.createJSONFile();
   }
 
+  checkTemplate() {
+    if (this.template === null) {
+      console.log('Please, set template');
+    }
+  }
+
   fetchData() {
+    this.checkTemplate();
+    if (this.template === null) return;
+
     return fetch(this.url)
       .then((response) => response.json())
       .then((list) => {
