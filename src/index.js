@@ -36,7 +36,7 @@ export class CountryList {
   }
 
   async createJSONFile() {
-    let result = await this.fetchData();
+    const result = await this.fetchData();
     const stringResult = JSON.stringify(result);
 
     fs.writeFile(`${this.fileName}.json`, stringResult, (err) => {
@@ -46,5 +46,3 @@ export class CountryList {
     });
   }
 }
-
-// ====
