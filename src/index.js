@@ -2,9 +2,10 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 
 export class CountryList {
-  constructor({ url, fileName }) {
+  constructor({ url, fileName, template }) {
     this.url = url;
     this.fileName = fileName;
+    this.template = template;
 
     this.createJSONFile();
   }
@@ -16,19 +17,7 @@ export class CountryList {
         let resultList = [];
 
         for (const item of list) {
-          const name = item.name;
-          const alpha2Code = item.alpha2Code;
-          const nativeName = item.nativeName;
-          const firstLang = item.languages[0].iso639_1;
-
-          let resultItem = {
-            [alpha2Code]: {
-              en: name,
-              [firstLang]: nativeName,
-            },
-          };
-
-          resultList.push(resultItem);
+          resultList.push(this.template(item));
         }
 
         return resultList;

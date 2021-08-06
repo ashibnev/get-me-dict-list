@@ -1,6 +1,6 @@
 *.json
 
-__old__js.js
+__old__*.js
 
 # Default
 .idea
