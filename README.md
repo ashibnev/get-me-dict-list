@@ -78,7 +78,8 @@ This is one of the objects we have in the array:
 }
 ```
 
-To customize objects for output, you must set the template settings
+To customize objects for output, you must set the template settings.
+Here is an example:
 
 ```
 template(_this) {
