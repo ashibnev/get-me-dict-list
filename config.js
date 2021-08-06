@@ -1,5 +1,6 @@
 export const config = {
   fileName: 'data',
+  dataType: 'object',
   template(_this) {
     return {
       [_this.alpha2Code]: {

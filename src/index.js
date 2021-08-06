@@ -1,19 +1,23 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
-
-const DEFAULT_URL = 'https://restcountries.eu/rest/v2/all';
-const DEFAULT_FILE_NAME = 'data';
-const DEFAULT_TEMPLATE = null;
+import { DEFAULT_CONFIG } from './defaultConfig.js';
 
 export class CountryList {
   constructor({
-    url = DEFAULT_URL,
-    fileName = DEFAULT_FILE_NAME,
-    template = DEFAULT_TEMPLATE,
+    url = DEFAULT_CONFIG.url,
+    fileName = DEFAULT_CONFIG.fileName,
+    template = DEFAULT_CONFIG.template,
+    dataType = DEFAULT_CONFIG.dataType,
   }) {
     this.url = url;
     this.fileName = fileName;
     this.template = template;
+    this.dataType = dataType;
+
+    this.types = {
+      array: [],
+      object: {},
+    };
 
     this.createJSONFile();
   }
@@ -31,13 +35,20 @@ export class CountryList {
     return fetch(this.url)
       .then((response) => response.json())
       .then((list) => {
-        let resultList = [];
+        let resultData = this.types[this.dataType];
 
         for (const item of list) {
-          resultList.push(this.template(item));
+          switch (this.dataType) {
+            case 'array':
+              resultData.push(this.template(item));
+              break;
+            case 'object':
+              Object.assign(resultData, this.template(item));
+              break;
+          }
         }
 
-        return resultList;
+        return resultData;
       });
   }
 

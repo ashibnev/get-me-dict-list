@@ -22,6 +22,12 @@ All options in file config.js
 
 **description**: what file name will be on output
 
+### fileType
+
+**default**: array
+
+**description**: what type of JSON data will be
+
 ### template
 
 **default**: null
