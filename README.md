@@ -6,33 +6,18 @@ to start type
 node init
 ```
 
-## how to config template
+## Options
 
 All options in file config.js
 
-### url
+| name     | default                                                | description                      |
+| -------- | ------------------------------------------------------ | -------------------------------- |
+| url      | [https://restcountries.eu/](https://restcountries.eu/) | API url                          |
+| fileName | 'data'                                                 | what file name will be on output |
+| fileType | 'array'                                                | what type of JSON data will be   |
+| template | null                                                   | \* see below                     |
 
-**default**: [https://restcountries.eu/](https://restcountries.eu/)
-
-**description**: API url
-
-### fileName
-
-**default**: data
-
-**description**: what file name will be on output
-
-### fileType
-
-**default**: array
-
-**description**: what type of JSON data will be
-
-### template
-
-**default**: null
-
-**description**:
+### How to setup template:
 
 This is one of the objects we have in the array:
 
