@@ -10,7 +10,7 @@ export const config = {
     return {
       [countryCode]: {
         en: nameInEnglish,
-        [commonLang]: _this.nativeName,
+        [commonLang]: nativeName,
         translations: _this.translations
       },
     };
