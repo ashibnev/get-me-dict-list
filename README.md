@@ -12,7 +12,7 @@ All options in file config.js
 
 | name     | default                                                | description                      |
 | -------- | ------------------------------------------------------ | -------------------------------- |
-| url      | [https://restcountries.eu/](https://restcountries.eu/) | API url                          |
+| url      | [https://restcountries.com/](https://restcountries.com/) | API url                          |
 | fileName | 'data'                                                 | what file name will be on output |
 | fileType | 'array'                                                | what type of JSON data will be   |
 | template | null                                                   | \* see below                     |
