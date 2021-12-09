@@ -2,14 +2,15 @@ export const config = {
   fileName: 'data',
   dataType: 'object',
   template(_this) {
-    const countryCode = _this.cca2;
-    const nameInEnglish = _this.name.official;
-    // const commonLang = Object.keys(_this.languages)[0];
+    const countryCode = _this.alpha2Code;
+    const nameInEnglish = _this.name;
+    const commonLang = _this.languages[0].iso639_1;
+    const nativeName = _this.nativeName;
 
     return {
       [countryCode]: {
         en: nameInEnglish,
-        // [commonLang]: _this.languages[commonLang],
+        [commonLang]: _this.nativeName,
         translations: _this.translations
       },
     };
