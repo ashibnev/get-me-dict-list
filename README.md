@@ -3,7 +3,7 @@
 to start type
 
 ```
-node init
+yarn get-langs
 ```
 
 ## Options
