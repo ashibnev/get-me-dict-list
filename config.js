@@ -7,13 +7,15 @@ export const config = {
     const commonLang = _this.languages[0].iso639_1;
     const nativeName = _this.nativeName;
     const currencyCode = _this.currencies ? _this.currencies[0].code : 'USD';
+    const currencySymbol = _this.currencies ? _this.currencies[0].symbol : '$';
 
     return {
       [countryCode]: {
         en: nameInEnglish,
         [commonLang]: nativeName,
         translations: _this.translations,
-        currencyCode: currencyCode
+        currencyCode: currencyCode,
+        currencySymbol: currencySymbol
       },
     };
   },
