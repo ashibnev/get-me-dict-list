@@ -87,16 +87,30 @@ This is one of the objects we have in the array:
 }
 ```
 
-To customize objects for output, you must set the template settings.
+To customize objects for output, you must set the template settings in file config.js.
 Here is an example:
 
 ```
-template(_this) {
-  return {
-    [_this.alpha2Code]: {
-      en: _this.name,
-      [_this.languages[0].iso639_1]: _this.nativeName,
-    },
-  };
-},
+export const config = {
+  fileName: 'data',
+  dataType: 'object',
+  template(_this) {
+    const countryCode = _this.alpha2Code;
+    const nameInEnglish = _this.name;
+    const commonLang = _this.languages[0].iso639_1;
+    const nativeName = _this.nativeName;
+    const currencyCode = _this.currencies ? _this.currencies[0].code : 'USD';
+    const currencySymbol = _this.currencies ? _this.currencies[0].symbol : '$';
+
+    return {
+      [countryCode]: {
+        en: nameInEnglish,
+        [commonLang]: nativeName,
+        translations: _this.translations,
+        currencyCode: currencyCode,
+        currencySymbol: currencySymbol
+      },
+    };
+  },
+};
 ```
